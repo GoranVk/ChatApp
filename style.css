@@ -1,0 +1,87 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+  .okvir {
+  width: 900px;
+  height: 700px;
+  border: 1px solid rgb(6, 5, 5);
+  margin: 0 auto;
+  top: 70px;
+  padding: 20px;
+  overflow: scroll;
+  position: relative;
+  overflow-x: hidden;
+  word-break: break-word;
+  box-shadow: 1px 1px #030303, 1px 22px 10px rgba(85, 84, 84, 0.695),
+  1px 25px 35px rgba(187, 187, 184, 0.983), 1px 30px 60px rgb(255, 251, 251);
+  background-image: url(https://img.rawpixel.com/private/static/images/website/2022-05/fl23417068812-image-kqap9rdw.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8a8c6d76961676bdf16bdf55e122529f);
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  
+  .members-count, .members-list {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 27px;
+  background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
+  }
+  
+  .message-form {
+  margin-top: 120px;
+  text-align: center;
+  }
+  
+  .message-form__button {
+  margin-left: 10px;
+  }
+  
+  .messages {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  position: relative;
+  margin: auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  }
+  
+  .message {
+  display: block;
+  max-width: 80%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 16px;
+  word-wrap: break-word;
+  background-color: #fff;
+  }
+  
+  .message.mine {
+  background-color: #ff4d4d;
+  color: #fff;
+  }
+  
+  .message .member {
+  font-weight: bold;
+  margin-right: 10px;
+  }
+  
+  .message.mine .member, .message.mine .text {
+  color: #fff;
+  }
+  
+  .message:first-child.mine {
+  background-color: #ff4d4d;
+  color: #fff;
+  }
+  
+  .message:first-child.mine .text {
+  color: #fff;
+  }
+  
+  .message {
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  }
