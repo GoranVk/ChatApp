@@ -33,8 +33,23 @@
   text-align: center;
   }
   
-  .message-form__button {
+  .message-form__button:hover {
   margin-left: 10px;
+  background-color:#425a9e;
+      transition: 0.7s;
+      font-style: italic;
+      color: aliceblue;
+     
+   
+  
+  
+  }
+
+  .message-form__button{
+
+    border-radius: 25%;
+    font-size: 22px;
+    background-color: aqua;
   }
   
   .messages {
@@ -85,3 +100,13 @@
   margin-bottom: 10px;
   border-radius: 5px;
   }
+
+.message-form__input{
+height: 40px;
+width: 600px;
+background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
+
+
+
+
+}
