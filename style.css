@@ -1,112 +1,107 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
-  .okvir {
-  width: 900px;
-  height: 700px;
+}
+
+body {
+  background-color: #e0e0e0; /* Example body background color */
+}
+
+.okvir {
+  width: 90%;
+  max-width: 1600px;
+  height: 80vh;
+  max-height: 700px;
   border: 1px solid rgb(6, 5, 5);
-  margin: 0 auto;
-  top: 70px;
+  margin: 70px auto 0 auto;
   padding: 20px;
-  overflow: scroll;
+  overflow-y: auto;
   position: relative;
-  overflow-x: hidden;
   word-break: break-word;
   box-shadow: 1px 1px #030303, 1px 22px 10px rgba(85, 84, 84, 0.695),
-  1px 25px 35px rgba(187, 187, 184, 0.983), 1px 30px 60px rgb(255, 251, 251);
-  background-image: url(https://img.rawpixel.com/private/static/images/website/2022-05/fl23417068812-image-kqap9rdw.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=8a8c6d76961676bdf16bdf55e122529f);
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-  
-  .members-count, .members-list {
+    1px 25px 35px rgba(187, 187, 184, 0.983), 1px 30px 60px rgb(255, 251, 251);
+  background-color: #fff; /* Independent background color for .okvir */
+}
+
+.members-count,
+.members-list {
   border: 1px solid black;
   text-align: center;
-  font-size: 27px;
+  font-size: 1.5em;
   background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
-  }
-  
-  .message-form {
-  margin-top: 120px;
+  padding: 10px;
+}
+
+.message-form {
+  margin-top: 3em;
   text-align: center;
-  }
-  
-  .message-form__button:hover {
+}
+
+.message-form__button:hover {
   margin-left: 10px;
-  background-color:#425a9e;
-      transition: 0.7s;
-      font-style: italic;
-      color: aliceblue;
-     
-   
-  
-  
-  }
+  background-color: #425a9e;
+  transition: 0.7s;
+  font-style: italic;
+  color: aliceblue;
+}
 
-  .message-form__button{
+.message-form__button {
+  border-radius: 25%;
+  font-size: 1.5em;
+  background-color: aqua;
+  padding: 10px 20px;
+}
 
-    border-radius: 25%;
-    font-size: 22px;
-    background-color: aqua;
-  }
-  
-  .messages {
+.messages {
   word-wrap: break-word;
   white-space: pre-wrap;
-  position: relative;
-  margin: auto;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 1em auto;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bolder;
-  }
-  
-  .message {
+  height: calc(100% - 120px); /* Adjust based on the height of other elements */
+  overflow-y: auto;
+}
+
+.message {
   display: block;
   max-width: 80%;
-  margin: 10px;
+  margin: 10px auto;
   padding: 10px;
-  border-radius: 20px;
-  font-size: 16px;
-  word-wrap: break-word;
+  border-radius: 10px;
+  font-size: 1em;
   background-color: #fff;
-  }
-  
-  .message.mine {
+}
+
+.message.mine {
   background-color: #ff4d4d;
   color: #fff;
-  }
-  
-  .message .member {
+}
+
+.message .member {
   font-weight: bold;
   margin-right: 10px;
-  }
-  
-  .message.mine .member, .message.mine .text {
+}
+
+.message.mine .member,
+.message.mine .text {
   color: #fff;
-  }
-  
-  .message:first-child.mine {
+}
+
+.message:first-child.mine {
   background-color: #ff4d4d;
   color: #fff;
-  }
-  
-  .message:first-child.mine .text {
+}
+
+.message:first-child.mine .text {
   color: #fff;
-  }
-  
-  .message {
-  padding: 5px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  }
+}
 
-.message-form__input{
-height: 40px;
-width: 600px;
-background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
-
-
-
-
+.message-form__input {
+  height: 2.5em;
+  width: 80%;
+  max-width: 400px;
+  padding: 0.5em;
+  font-size: 1em;
+  background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
 }

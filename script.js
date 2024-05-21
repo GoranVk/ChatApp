@@ -1,9 +1,10 @@
-const CLIENT_ID = 'panLq6u0403F3wNx';
+const CLIENT_ID = "panLq6u0403F3wNx";
 
-let username = prompt('What is your name?');
+let username = getUsername();
 
 const drone = new ScaleDrone(CLIENT_ID, {
-  data: { // Will be sent out as clientData via events
+  data: {
+    // Will be sent out as clientData via events
     name: username,
     color: getRandomColor(),
   },
@@ -11,37 +12,47 @@ const drone = new ScaleDrone(CLIENT_ID, {
 
 let members = [];
 
-drone.on('open', error => {
+drone.on("open", (error) => {
   if (error) {
     return console.error(error);
   }
-  console.log('Successfully connected to Scaledrone');
+  console.log("Successfully connected to Scaledrone");
 
-  const room = drone.subscribe('observable-room');
-  room.on('open', error => {
+  const room = drone.subscribe("observable-room");
+  room.on("open", (error) => {
     if (error) {
       return console.error(error);
     }
-    console.log('Successfully joined room');
+    console.log("Successfully joined room");
   });
 
-  room.on('members', m => {
+  room.on("members", (m) => {
     members = m;
-    updateMembersDOM();
+    if (!isRoomValid()) {
+      alert("Room is full or invalid user name");
+      drone.close();
+    } else {
+      updateMembersDOM();
+    }
   });
 
-  room.on('member_join', member => {
+  room.on("member_join", (member) => {
     members.push(member);
-    updateMembersDOM();
+    if (!isRoomValid()) {
+      alert("Room is full or invalid user name");
+      drone.close();
+    } else {
+      updateMembersDOM();
+    }
   });
 
-  room.on('member_leave', ({id}) => {
-    const index = members.findIndex(member => member.id === id);
+  room.on("member_leave", ({ id }) => {
+    const index = members.findIndex((member) => member.id === id);
     members.splice(index, 1);
     updateMembersDOM();
   });
 
-  room.on('data', (text, member) => {
+  room.on("data", (text, member) => {
     if (member) {
       addMessageToListDOM(text, member);
     } else {
@@ -50,81 +61,84 @@ drone.on('open', error => {
   });
 });
 
-drone.on('close', event => {
-  console.log('Connection was closed', event);
+drone.on("close", (event) => {
+  console.log("Connection was closed", event);
 });
 
-drone.on('error', error => {
+drone.on("error", (error) => {
   console.error(error);
 });
 
 function getUsername() {
-  let name = prompt('What is your name?');
-  if (!name) {
-    name = 'Anonymous';
+  let name = prompt("What is your name?");
+  if (!name || !["Marko", "Janko"].includes(name)) {
+    name = "Anonymous";
   }
   return name;
 }
 
 function getRandomColor() {
-  return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+  return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+}
+
+function isRoomValid() {
+  const validUsers = ["Marko", "Janko"];
+  const currentUsers = members.map((member) => member.clientData.name);
+  const allValid = currentUsers.every((name) => validUsers.includes(name));
+  return allValid && currentUsers.length <= 2;
 }
 
 //------------- DOM STUFF
 
 const DOM = {
-  membersCount: document.querySelector('.members-count'),
-  membersList: document.querySelector('.members-list'),
-  messages: document.querySelector('.messages'),
-  input: document.querySelector('.message-form__input'),
-  form: document.querySelector('.message-form'),
+  membersCount: document.querySelector(".members-count"),
+  membersList: document.querySelector(".members-list"),
+  messages: document.querySelector(".messages"),
+  input: document.querySelector(".message-form__input"),
+  form: document.querySelector(".message-form"),
 };
 
-DOM.form.addEventListener('submit', sendMessage);
+DOM.form.addEventListener("submit", sendMessage);
 
-function sendMessage() {
+function sendMessage(event) {
+  event.preventDefault();
   const value = DOM.input.value;
-  if (value === '') {
+  if (value === "") {
     return;
   }
-  DOM.input.value = '';
+  DOM.input.value = "";
   drone.publish({
-    room: 'observable-room',
+    room: "observable-room",
     message: value,
   });
 }
 
 function createMemberElement(member) {
   const { name, color } = member.clientData;
-  const el = document.createElement('div');
+  const el = document.createElement("div");
   el.appendChild(document.createTextNode(name));
-  el.className = 'member';
+  el.className = "member";
   el.style.color = color;
   return el;
 }
 
 function updateMembersDOM() {
   DOM.membersCount.innerText = `${members.length} users in room:`;
-  DOM.membersList.innerHTML = '';
-  members.forEach(member =>
+  DOM.membersList.innerHTML = "";
+  members.forEach((member) =>
     DOM.membersList.appendChild(createMemberElement(member))
   );
 }
 
-
-
-
 function createMessageElement(text, member) {
-  const el = document.createElement('div');
+  const el = document.createElement("div");
   el.appendChild(createMemberElement(member));
   el.appendChild(document.createTextNode(text));
-  el.className = 'message';
+  el.className = "message";
 
- 
   if (member.id === members[0].id) {
-    el.style.backgroundColor = 'gray';
+    el.style.backgroundColor = "gray";
   } else {
-   
     el.style.backgroundColor = getRandomColor();
   }
 
@@ -134,11 +148,9 @@ function createMessageElement(text, member) {
 function addMessageToListDOM(text, member) {
   const el = DOM.messages;
   const wasTop = el.scrollTop === el.scrollHeight - el.clientHeight;
-  el.insertAdjacentElement('beforeend', createMessageElement(text, member));
+  el.insertAdjacentElement("beforeend", createMessageElement(text, member));
+  el.scrollTop = el.scrollHeight; // Automatically scroll to the bottom
   if (wasTop) {
     el.scrollTop = el.scrollHeight - el.clientHeight;
   }
 }
-
-
-
