@@ -9,9 +9,9 @@ body {
 }
 
 .okvir {
-  width: 90%;
+  width: 80%;
   max-width: 1600px;
-  height: 80vh;
+  height: 60vh;
   max-height: 700px;
   border: 1px solid rgb(6, 5, 5);
   margin: 70px auto 0 auto;
