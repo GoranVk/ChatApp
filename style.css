@@ -47,10 +47,9 @@ body {
 }
 
 .message-form__button {
-  border-radius: 25%;
-  font-size: 1.5em;
-  background-color: aqua;
-  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: rgb(218, 224, 224);
+  padding: 7px 12px;
 }
 
 .messages {
@@ -61,6 +60,7 @@ body {
   font-weight: bolder;
   height: calc(100% - 120px); /* Adjust based on the height of other elements */
   overflow-y: auto;
+  font-size: 1.5rem;
 }
 
 .message {
@@ -104,4 +104,15 @@ body {
   padding: 0.5em;
   font-size: 1em;
   background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
+}
+
+/* Dodajte ove stilove */
+.message.janko {
+  background-color: lightgray;
+  color: black;
+}
+
+.message.marko {
+  background-color: lightgreen;
+  color: black;
 }

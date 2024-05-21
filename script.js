@@ -136,8 +136,11 @@ function createMessageElement(text, member) {
   el.appendChild(document.createTextNode(text));
   el.className = "message";
 
-  if (member.id === members[0].id) {
-    el.style.backgroundColor = "gray";
+  // Provjerite ime člana i primijenite odgovarajuće klase
+  if (member.clientData.name === "Janko") {
+    el.classList.add("janko");
+  } else if (member.clientData.name === "Marko") {
+    el.classList.add("marko");
   } else {
     el.style.backgroundColor = getRandomColor();
   }
