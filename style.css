@@ -27,10 +27,12 @@ body {
 .members-count,
 .members-list {
   border: 1px solid black;
+
+  max-width: fit-content;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
   background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
-  padding: 10px;
+  padding: 1px;
 }
 
 .message-form {
