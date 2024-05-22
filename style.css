@@ -87,7 +87,7 @@ body {
   word-wrap: break-word;
   white-space: pre-wrap;
   margin: 1em auto;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: cursive;
   font-weight: bolder;
   height: calc(100% - 120px); /* Adjust based on the height of other elements */
   overflow-y: auto;
@@ -143,11 +143,11 @@ body {
 
 /* Dodajte ove stilove */
 .message.janko {
-  background-color: rgb(197, 197, 197);
-  color: rgb(0, 0, 0);
+  background-color: rgb(50, 50, 50);
+  color: rgb(255, 255, 255);
 }
 
 .message.marko {
-  background-color: rgb(209, 207, 207);
-  color: rgb(6, 6, 6);
+  background-color: rgb(55, 55, 55);
+  color: rgb(255, 255, 255);
 }
