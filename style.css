@@ -73,7 +73,6 @@ body {
   margin-top: 3em;
   text-align: center;
   font-size: 25px;
-  font-family: cursive;
 }
 
 .message-form__button {
@@ -87,7 +86,7 @@ body {
   word-wrap: break-word;
   white-space: pre-wrap;
   margin: 1em auto;
-  font-family: cursive;
+
   font-weight: bolder;
   height: calc(100% - 120px); /* Adjust based on the height of other elements */
   overflow-y: auto;
@@ -102,7 +101,6 @@ body {
   border-radius: 10px;
   font-size: 1em;
   background-color: #fff;
-  font-family: cursive;
 }
 
 .message.mine {
