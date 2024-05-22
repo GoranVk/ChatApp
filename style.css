@@ -12,7 +12,7 @@ body {
 
 .okvir {
   width: 80%;
-  max-width: 1600px;
+  max-width: 1300px;
   height: 60vh;
   max-height: 700px;
   border: 7px solid rgb(6, 5, 5);
@@ -143,11 +143,11 @@ body {
 
 /* Dodajte ove stilove */
 .message.janko {
-  background-color: rgb(50, 50, 50);
-  color: rgb(255, 255, 255);
+  background-color: rgb(209, 208, 208);
+  color: rgb(8, 8, 8);
 }
 
 .message.marko {
-  background-color: rgb(55, 55, 55);
-  color: rgb(255, 255, 255);
+  background-color: rgb(225, 223, 223);
+  color: rgb(6, 6, 6);
 }
