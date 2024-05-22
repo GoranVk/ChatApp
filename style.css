@@ -5,7 +5,9 @@
 }
 
 body {
-  background-color: #e0e0e0; /* Example body background color */
+  background-image: url(./overlapping-fine-neon-green-matrix-dvfxd08moa4d5hy8.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .okvir {
@@ -13,45 +15,72 @@ body {
   max-width: 1600px;
   height: 60vh;
   max-height: 700px;
-  border: 1px solid rgb(6, 5, 5);
+  border: 7px solid rgb(6, 5, 5);
   margin: 70px auto 0 auto;
   padding: 20px;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: relative;
   word-break: break-word;
-  box-shadow: 1px 1px #030303, 1px 22px 10px rgba(85, 84, 84, 0.695),
-    1px 25px 35px rgba(187, 187, 184, 0.983), 1px 30px 60px rgb(255, 251, 251);
-  background-color: #fff; /* Independent background color for .okvir */
+  box-shadow: 1px 1px #8c8c8c, 1px 22px 10px rgb(249, 247, 247),
+    1px 15px 25px rgba(252, 252, 252, 0.983), 1px 15px 30px rgb(255, 251, 251);
+  background-color: #fffdfd; /* Independent background color for .okvir */
 }
 
-.members-count,
 .members-list {
-  border: 1px solid black;
+  /* Promenite na fiksni položaj */
+  position: relative;
+  /* Ostatak stila */
+  display: inline block;
+  top: 5%;
+  left: 10%;
 
   max-width: fit-content;
   text-align: center;
-  font-size: 1.2em;
-  background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
+  font-size: 1.4em;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: linear-gradient(rgb(255, 255, 255), rgb(245, 241, 242));
+  padding: 1px;
+}
+
+.members-count {
+  position: relative;
+  /* Ostatak stila */
+  display: inline-block;
+
+  top: 4%;
+  left: 10%;
+  border: 6px solid;
+  padding: 7px;
+  border-image: repeating-linear-gradient(
+      to bottom right,
+      #100f0f,
+      #363535,
+      #878787,
+      rgb(234, 232, 232)
+    )
+    20;
+  max-width: fit-content;
+  text-align: center;
+  font-size: 1.4em;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background: linear-gradient(rgb(255, 255, 255), rgb(245, 241, 242));
   padding: 1px;
 }
 
 .message-form {
   margin-top: 3em;
   text-align: center;
-}
-
-.message-form__button:hover {
-  margin-left: 10px;
-  background-color: #425a9e;
-  transition: 0.7s;
-  font-style: italic;
-  color: aliceblue;
+  font-size: 25px;
+  font-family: cursive;
 }
 
 .message-form__button {
-  font-size: 1.2em;
+  font-size: 0.8em;
   background-color: rgb(218, 224, 224);
   padding: 7px 12px;
+  font-weight: 600;
 }
 
 .messages {
@@ -73,16 +102,19 @@ body {
   border-radius: 10px;
   font-size: 1em;
   background-color: #fff;
+  font-family: cursive;
 }
 
 .message.mine {
-  background-color: #ff4d4d;
+  background-color: #000000;
   color: #fff;
 }
 
 .message .member {
   font-weight: bold;
   margin-right: 10px;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .message.mine .member,
@@ -91,30 +123,31 @@ body {
 }
 
 .message:first-child.mine {
-  background-color: #ff4d4d;
+  background-color: #050505;
   color: #fff;
 }
 
 .message:first-child.mine .text {
-  color: #fff;
+  color: #f8f4f4;
 }
 
 .message-form__input {
-  height: 2.5em;
+  height: 50px;
   width: 80%;
-  max-width: 400px;
-  padding: 0.5em;
+  border: 6px solid black;
+  max-width: 500px;
+
   font-size: 1em;
   background: linear-gradient(rgb(196, 196, 200), rgb(245, 241, 242));
 }
 
 /* Dodajte ove stilove */
 .message.janko {
-  background-color: lightgray;
-  color: black;
+  background-color: rgb(197, 197, 197);
+  color: rgb(0, 0, 0);
 }
 
 .message.marko {
-  background-color: lightgreen;
-  color: black;
+  background-color: rgb(209, 207, 207);
+  color: rgb(6, 6, 6);
 }

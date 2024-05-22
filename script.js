@@ -4,6 +4,7 @@ let username = getUsername();
 
 const drone = new ScaleDrone(CLIENT_ID, {
   data: {
+    // Will be sent out as clientData via events
     name: username,
     color: getRandomColor(),
   },
@@ -83,15 +84,8 @@ function getRandomColor() {
 function isRoomValid() {
   const validUsers = ["Marko", "Janko"];
   const currentUsers = members.map((member) => member.clientData.name);
-
-  // Provjeri da li su trenutni članovi validni korisnici
   const allValid = currentUsers.every((name) => validUsers.includes(name));
-
-  // Provjeri da li je ime korisnika jedinstveno
-  const uniqueUsernames = new Set(currentUsers);
-  const isUnique = uniqueUsernames.size === currentUsers.length;
-
-  return allValid && isUnique && currentUsers.length <= 2;
+  return allValid && currentUsers.length <= 2;
 }
 
 //------------- DOM STUFF
@@ -142,6 +136,7 @@ function createMessageElement(text, member) {
   el.appendChild(document.createTextNode(text));
   el.className = "message";
 
+  // Provjerite ime člana i primijenite odgovarajuće klase
   if (member.clientData.name === "Janko") {
     el.classList.add("janko");
   } else if (member.clientData.name === "Marko") {
